@@ -8,15 +8,23 @@ use Tests\TestCase;
 
 class APIListPostsTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
+    use DatabaseMigrations;
 
-        $response->assertStatus(200);
+    /** @test */
+    public function podemosVerPostUnicoPorApi()
+    {
+        $author = $this->addAuthor();
+
+        $post = $this->addPost($author);
+
+        $response = $this->getjson('/api/post/1');
+
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                'title' => $post->title,
+                'body' => $post->body,
+                'author_id' => $author->id
+            ]);
     }
 }
