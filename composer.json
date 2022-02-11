@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "phpstan/phpstan": "^1.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -49,6 +50,9 @@
         ],
         "fix" : [
             "./vendor/bin/php-cs-fixer fix ."
+        ],
+        "stan" : [
+            "./vendor/bin/phpstan analyse -l 9 app database routes tests"
         ]
     },
     "extra": {
