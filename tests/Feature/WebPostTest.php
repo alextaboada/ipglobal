@@ -16,7 +16,7 @@ class WebPostTest extends TestCase
         $this->withoutExceptionHandling();
 
         $author= $this->addAuthor();
-
+        
         $post = $this->addPost($author);
 
         $view = $this->get('/');

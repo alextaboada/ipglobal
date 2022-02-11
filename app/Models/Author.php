@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use app\Models\Post;
 
 class Author extends Model
 {
@@ -11,4 +12,8 @@ class Author extends Model
 
     protected $guarded=[];
     public  $timestamps= false;
+
+    public function posts(){
+        return $this->hasmany(Post::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use app\Models\Author;
 
 class Post extends Model
 {
@@ -11,4 +12,8 @@ class Post extends Model
 
     protected $guarded=[];
     public $timestamps=false;
+
+    public function author(){
+        return $this->belongsTo(Author::class);
+    }
 }
