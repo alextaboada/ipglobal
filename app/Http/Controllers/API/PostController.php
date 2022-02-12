@@ -4,21 +4,25 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Services\PostServices;
+
 
 class PostController extends Controller
 {
+    protected PostServices $postsService;
+
+    public function __construct(PostServices $postsService)
+    {
+        $this->postsService = $postsService;
+    }
+
     public function getPost(int $id)
     {
-        return response(Post::find($id),200);
+        return response($this->postsService->getPost($id),200);
     }
 
     public function storePost(Request $request){
-        $post=Post::create([
-            'title' => $request->title,
-            'body' => $request->body,
-            'author_id' => $request->author_id,
-        ]);
-        return response($post,201);
+        $post=$this->postsService->storePost($request);
+        return response($post, 201);
     }
 }
