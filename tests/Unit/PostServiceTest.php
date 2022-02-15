@@ -14,7 +14,8 @@ class PostServicesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp():void{
+    public function setUp(): void
+    {
         parent::setUp();
         $this->seed([authorsSeeder::class, postsSeeder::class]);
     }
@@ -23,7 +24,7 @@ class PostServicesTest extends TestCase
     public function getPostDevuelveTodosLosPosts()
     {
         $service = new PostServices();
-        $this->assertEquals($service->getPosts()->count(),100);
+        $this->assertEquals($service->getPosts()->count(), 100);
     }
 
     /** @test */
@@ -40,7 +41,8 @@ class PostServicesTest extends TestCase
     }
 
     /** @test */
-    public function storePostGuardaUnPostCorrectamente(){
+    public function storePostGuardaUnPostCorrectamente()
+    {
         $request = new Request([
             'title'=> 'Titulo de prueba',
             'body' => 'cuerpo',
@@ -48,6 +50,6 @@ class PostServicesTest extends TestCase
         ]);
         $service = new PostServices();
         $post = $service->storePost($request);
-        $this->assertDatabaseHas('posts',$request->toArray());
+        $this->assertDatabaseHas('posts', $request->toArray());
     }
 }

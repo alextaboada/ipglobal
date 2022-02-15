@@ -12,11 +12,12 @@ class WebPostTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    public function podemosVerListadoPosts(){
+    public function podemosVerListadoPosts()
+    {
         $this->withoutExceptionHandling();
 
         $author= $this->addAuthor();
-        
+
         $post = $this->addPost($author);
 
         $view = $this->get('/');
@@ -25,7 +26,8 @@ class WebPostTest extends TestCase
     }
 
     /** @test */
-    public function podemosVerPostUnico(){
+    public function podemosVerPostUnico()
+    {
         $this->withoutExceptionHandling();
 
         $author= $this->addAuthor();

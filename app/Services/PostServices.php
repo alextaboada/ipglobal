@@ -6,17 +6,20 @@ use App\Models\Post;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
-class PostServices {
-
-    public function getPosts(){
+class PostServices
+{
+    public function getPosts()
+    {
         return Post::all();
     }
 
-    public function getPost(int $id){
+    public function getPost(int $id)
+    {
         return Post::find($id)->load('author');
     }
 
-    public function storePost(Request $request){
+    public function storePost(Request $request)
+    {
         $post=Post::create([
             'title' => $request->title,
             'body' => $request->body,
@@ -24,5 +27,4 @@ class PostServices {
         ]);
         return $post;
     }
-
 }

@@ -12,10 +12,11 @@ class APIPostPostsTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    public function podemosCrearPostApi(){
+    public function podemosCrearPostApi()
+    {
         $author= $this->addAuthor();
 
-        $response = $this->postJson(route('api.create'),[
+        $response = $this->postJson(route('api.create'), [
             'title' => 'Titulo de prueba',
             'body' => 'Cuerpo de la prueba',
             'author_id' => $author->id

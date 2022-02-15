@@ -17,15 +17,13 @@ class SeederTest extends TestCase
     {
         $this->seed(authorsSeeder::class);
 
-        $this->assertDatabaseCount('authors',10);
-
+        $this->assertDatabaseCount('authors', 10);
     }
     /** @test */
     public function seederCargaDatosPostsCorrectamente()
     {
         $this->seed([authorsSeeder::class,postsSeeder::class]);
 
-        $this->assertDatabaseCount('posts',100);
-
+        $this->assertDatabaseCount('posts', 100);
     }
 }

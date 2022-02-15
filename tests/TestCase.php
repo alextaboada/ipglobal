@@ -10,7 +10,8 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
-    protected function addAuthor(){
+    protected function addAuthor()
+    {
         $author= Author::create([
             'id' => 1,
             'name' => 'Alejandro Taboada',
@@ -30,7 +31,8 @@ abstract class TestCase extends BaseTestCase
         return $author;
     }
 
-    protected function addPost(Author $author){
+    protected function addPost(Author $author)
+    {
         $post = Post::create([
             'title' => 'Post de prueba',
             'body' => 'Prueba de integracion',
