@@ -1,64 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+#Práctica IPGLOBAL
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##Requisitos obligatorios
 
-## About Laravel
+- PHP 7.4 ó 8.0
+- Composer y estructura PSR-4 en el proyecto
+- La última versión estable de Symfony/Laravel
+- Testing unitario
+- La API debe devolver y consumir los datos en formato JSON
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Todos los requisitos obligatorios han sido implementados con éxito. El tema de los test unitarios se explicará en el apartado de "Opinión personal"
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##Requisitos opcionales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Uso de herramientas de análisis estático (por ejemplo PHPStan en modo máximo) y de estilo de código (por ejemplo PHP CS Fixer en modo @Symfony)
+- Uso de SCSS y Webpack, ya sea usando Webpack directamente o mediante Symfony Encore / Laravel Mix o similar
+- Ofrecer un Swagger/OpenAPI para la API
 
-## Learning Laravel
+De este apartado conseguí implementar el php-cs-fixer que ha funcionado correctamente, phpstan aunque no he conseguido corregir los errores por falta de tiempo, y el uso de Laravel Mix para incluir tailwind dentro de la instalación de Laravel. Swagger/OpenApi no conseguí implementarlo. Como antes, se explicará en profundidad en el apartado "Opinión personal"
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##Opinión personal
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Uno de los principales problemas que me he encontrado a la hora de realizar la práctica, ha sido la falta de práctica, ya que como os comenté, hace bastante tiempo que no tocaba nada de Laravel.  
 
-## Laravel Sponsors
+Así como las cosas básicas sí que las tenía más o menos controladas(creación de rutas, controladores básicos, vistas...) hubo otros temas como por ejemplo hacer la API o usar phpstan si me han costado mucho más.  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Otra de las dificultades que me encontré y que creo que no he sabido realizar correctamente han sido los commits de git. En un principio intenté hacer un número amplio de commits, para poder retornar a ellos en caso necesario, pero ahora veo que igual hubiera sido mejor hacerlo por funcionalidades completas. También valoré usar el método de git-flow, para separar todo un poco más, pero siendo yo solo el que hacía commits, me pareció complicar sin sentido el repositorio.  
 
-### Premium Partners
+En el caso de phpstan, investigué lo que pude sobre él y conseguí implementarlo en la instalación de laravel, pero cometí el error, al igual que con php-cs-fixer, de no ejecutarlo cada poco tiempo, por lo que me vi al final con un enorme número de errores, que no me dio tiempo a solucionar. Este es un error que no me volverá a ocurrir.  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+También investigué lo que pude sobre la documentación de la API con Swagger. Comencé a hacer la explicación de la API, pero al no tener práctica haciendo la explicación, y faltándome tiempo para la práctica en si, preferí centrarme en lo segundo.  
 
-## Contributing
+En lo referente al método para desarrollar la práctica, lo que hice fue lo siguiente. Empecé por realizar los test de integración y hacer que pasaran, desarrollando las vistas y los controladores. Una vez terminados, me di cuenta de que tal y como estaba diseñada la aplicación, con toda la lógica en los controladores, era muy complicado realizar los test unitarios. Para solucionar esto, saqué la lógica a un servicio, en los cuales si que podía realizar los test unitarios.  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Con respecto a los test, me faltó tiempo y práctica para realizar más test. Al no haberlos realizado nunca, me resultó complicado desarrollar todos los supuestos para cada caso.  
 
-## Code of Conduct
+Esto ha sido el resumen de la práctica. Me hubiera gustado disponer de mas tiempo efectivo para poder realizarla y de mas destreza y práctica para hacerla mejor, pero me ha dado pie y ganas para seguir formándome. Aunque ha sido complicado por momentos, he disfrutado volviendo a programar con Laravel.  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
